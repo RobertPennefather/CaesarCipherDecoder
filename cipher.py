@@ -29,5 +29,8 @@ if __name__ == "__main__":
     parser.add_argument('-s', '--shift', help='shift')
     args = parser.parse_args()
     
-    cipherText = encrypt(args.plainText)
+    if args.shift is not None:
+        cipherText = encrypt(args.plainText, int(args.shift))
+    else: 
+        cipherText = encrypt(args.plainText)
     print(cipherText)
